@@ -1,58 +1,77 @@
 .dropbtn {
-    background-color: var(--primary);
-    color: white;
-    padding: 8px;
-    font-size: 16px;
-    font-weight: 800;
-    border: 2px solid var(--primary);
-    border-radius: 5px;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    z-index: 3;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: var(--primary);
-    color: white;
-    cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: 800;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  min-height: 44px;
+  cursor: pointer;
 }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-    color: var(--primary);
-    background-color: white;
-    border: 2px solid white;
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 3;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  min-height: 44px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  color: var(--primary);
+  background-color: white;
+  border: 2px solid white;
+}
+
+.dropbtn:focus {
+  outline: none;
+}
+
+/* Mobile improvements */
+@media only screen and (max-width: 768px) {
+  .dropdown-content {
+    min-width: 200px;
+    right: 0;
   }
 
-  .dropbtn:focus {
-
-
-    outline: none;
+  .dropdown-content a {
+    padding: 16px;
+    font-size: 16px;
   }
+}

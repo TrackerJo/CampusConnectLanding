@@ -5,32 +5,45 @@ import InfoTile from "./info_tile";
 
 function ActivitiesSection() {
   return (
-    <>
-      <div className='activities-section' id="activities">
+    <div className='activities-section' id="activities">
+      <div className='activities-div'>
+        <h2 className="title">Activity Management Suite</h2>
+        <p className="section-intro">
+          Empower your school with comprehensive tools to manage all student activities, from clubs to athletics to academic competitions.
+        </p>
 
-        <div className='activities-div'>
-          <h2 className="title">Activity Management</h2>
-          <div className="activities-tiles">
-            <InfoTile
-              title="Students"
-              description="Easily manage your activities and events with our intuitive interface. All events automatically sync with your device calendar, so your all your events are in one place."
-            />
-            <InfoTile
-              title="Coaches & Staff"
-              description="Our platform allows you to create and manage your activities's events with ease. Easily create one-time or recurring events on the website or app, or add events directly from google sheets. Seasons over? Easily move all your events to the next season with a single click."
-            />
-            <InfoTile
-              title="Parents"
-              description="Stay up to date with your child's activities and events. Our platform allows you to easily view all of your child's events in one place, and sync them with your device calendar."
-            />
-          </div>
+        <div className="activities-tiles">
 
+          <InfoTile
+            title="For Activity Coordinators"
+            description="Intuitive tools to create events, manage rosters, communicate with participants, and track attendance. Automated scheduling prevents conflicts and integrates with your existing calendar systems."
+          />
+          <InfoTile
+            title="For Students & Parents"
+            description="Easy-to-use interface for students to discover activities, register for events, and stay updated. Parents receive real-time notifications and can sync schedules with their personal calendars."
+          />
         </div>
 
+        <div className="features-showcase">
+          <h3>Key Features</h3>
+          <div className="features-list">
+            <div className="feature-item">
+              <span className="feature-icon">🗓️</span>
+              <span>Smart Scheduling & Conflict Resolution</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">📅 </span>
+              <span>Synced to Device Calendars</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">💬</span>
+              <span>Multi-channel Communication</span>
+            </div>
 
+          </div>
+        </div>
       </div>
-
-    </>
+    </div>
   )
 }
 

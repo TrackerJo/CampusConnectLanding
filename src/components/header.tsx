@@ -6,6 +6,7 @@ import Dropdown from "./dropdown";
 
 function Header() {
     const [isSticky, setSticky] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const headerRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
@@ -23,17 +24,37 @@ function Header() {
         }
     }, [])
 
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false);
+    };
+
+    const scrollToSection = (sectionId: string) => {
+        closeMobileMenu();
+        window.location.href = `/#${sectionId}`;
+        setTimeout(() => {
+            window.scrollTo({
+                top: window.scrollY - 100,
+                behavior: "smooth"
+            });
+        }, 100);
+    };
+
     return (
         <div ref={headerRef} className={"header " + (isSticky ? "sticky" : "")} id="myHeader">
             <div className="header-left" onClick={() => {
                 window.location.href = "/"
             }}>
                 <img src={Logo} alt="" className="Logo" />
-                <h2>Campus Connect</h2>
+                <h2 className="header-title">Campus Connect</h2>
             </div>
-            <div className="header-right">
 
-                <Dropdown title="Features" onClick={() => {
+            {/* Desktop Menu */}
+            <div className="header-right desktop-menu">
+                <Dropdown title="Solutions" onClick={() => {
                     window.location.href = "/#features"
                     window.scrollTo({
                         top: window.scrollY - 100,
@@ -41,7 +62,7 @@ function Header() {
                     });
                 }} links={[
                     {
-                        title: "Activities Management",
+                        title: "Activity Management",
                         onClick: () => {
                             window.location.href = "/#activities"
                             window.scrollTo({
@@ -51,10 +72,9 @@ function Header() {
                         }
                     },
                     {
-                        title: "Ridesharing",
+                        title: "Transportation",
                         onClick: () => {
                             window.location.href = "/#ridesharing"
-                            //scroll up just a bit
                             window.scrollTo({
                                 top: window.scrollY - 100,
                                 behavior: "instant"
@@ -62,7 +82,7 @@ function Header() {
                         }
                     },
                     {
-                        title: "Opportunities",
+                        title: "Career Center",
                         onClick: () => {
                             window.location.href = "/#opportunities"
                             window.scrollTo({
@@ -73,18 +93,63 @@ function Header() {
                     }
 
                 ]} />
+                <Dropdown title="Pricing" onClick={() => {
+                    window.location.href = "/#pricing"
+                }} links={[]} />
                 <Dropdown title="Contact" onClick={() => {
                     window.location.href = "/#contact"
 
                 }} links={[]}
                 />
-                <Dropdown title="Dashboard" onClick={() => {
+                <Dropdown title="Login" onClick={() => {
                     window.location.href = "https://dashboard.campusconnects.net"
                 }} links={[]} />
-
-
             </div>
 
+            {/* Mobile Menu Toggle */}
+            <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+                <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+                <div className="mobile-menu-content">
+                    <div className="mobile-menu-header">
+                        <h3>Menu</h3>
+                        <button className="close-mobile-menu" onClick={closeMobileMenu}>×</button>
+                    </div>
+
+                    <div className="mobile-menu-items">
+                        <div className="mobile-menu-section">
+                            <h4>Solutions</h4>
+                            <a onClick={() => scrollToSection('features')}>All Features</a>
+                            <a onClick={() => scrollToSection('activities')}>Activity Management</a>
+                            <a onClick={() => scrollToSection('ridesharing')}>Transportation</a>
+                            <a onClick={() => scrollToSection('opportunities')}>Career Center</a>
+                        </div>
+
+                        <div className="mobile-menu-section">
+                            <a onClick={() => scrollToSection('testimonials')}>Testimonials</a>
+                            <a onClick={() => scrollToSection('pricing')}>Pricing</a>
+                            <a onClick={() => scrollToSection('contact')}>Contact</a>
+                        </div>
+
+                        <div className="mobile-menu-section">
+                            <a onClick={() => {
+                                closeMobileMenu();
+                                window.location.href = "https://dashboard.campusconnects.net";
+                            }} className="login-link">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile Menu Overlay */}
+            {isMobileMenuOpen && <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>}
         </div>
     )
 }

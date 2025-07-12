@@ -1,12 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 @media only screen and (max-width: 768px) {
-
-
   body {
     overflow-x: hidden !important;
   }
 
-
-
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 .hero-section {

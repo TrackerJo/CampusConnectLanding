@@ -1,65 +1,122 @@
 .opportunities-section {
-  position: relative;
+  padding: 80px 20px;
+  background-color: white;
+  overflow-x: hidden;
   width: 100%;
-  height: 800px;
-  background-color: var(--primary);
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
+.opportunities-div {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
 }
 
 .opportunities-div .title {
-
-
-  font-size: 4rem;
-  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
 }
 
-
-
-.opportunities-div {
-  width: 100%;
-  height: 100%;
-
-  position: absolute;
-  z-index: 1;
-  display: flex;
-
-  align-items: center;
-  color: white;
-  flex-direction: column;
-}
-
-.opportunities-div p {
-  font-size: 1.5rem;
-  text-align: center;
-
-}
-
-@media only screen and (max-width: 768px) {
-
-
-  .opportunities-section {
-    height: 200px !important;
-  }
-
-  .opportunities-div h2 {
-    font-size: 2rem !important;
-  }
-
-  .opportunities-div p {
-    margin-top: -20px !important;
-    padding-bottom: 20px !important;
-    font-size: 0.8rem !important;
-  }
-
-
+.section-intro {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .opportunities-tiles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 20px;
-  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.career-features {
+  margin-top: 60px;
+  padding: 50px 40px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+}
+
+.career-features h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 40px;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.career-item {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.career-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.career-item h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.career-item p {
+  color: #6c757d;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .opportunities-section {
+    padding: 60px 15px;
+  }
+
+  .opportunities-div .title {
+    font-size: 2rem;
+  }
+
+  .section-intro {
+    font-size: 1rem;
+  }
+
+  .opportunities-tiles {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .career-features {
+    padding: 40px 20px;
+  }
+
+  .career-features h3 {
+    font-size: 1.5rem;
+  }
+
+  .career-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .career-icon {
+    font-size: 2rem;
+  }
 }
