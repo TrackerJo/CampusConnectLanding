@@ -10,7 +10,6 @@ function Header() {
 
     const headerRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
-
         window.onscroll = function () { myFunction() };
 
         const sticky = headerRef.current!.offsetTop;
@@ -18,8 +17,10 @@ function Header() {
         function myFunction() {
             if (window.scrollY > sticky) {
                 setSticky(true);
+                document.body.classList.add('sticky-header');
             } else {
                 setSticky(false);
+                document.body.classList.remove('sticky-header');
             }
         }
     }, [])

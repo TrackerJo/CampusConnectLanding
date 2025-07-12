@@ -7,8 +7,8 @@
   color: black;
   /* create primary color var */
   --primary: #ff6b34;
-  --primary-light: #28b05e;
-  --primary-dark: #1d8645;
+  --primary-light: #ff6b34;
+  --primary-dark: #ff6b34;
   background-color: white;
 
   font-synthesis: none;
@@ -165,7 +165,7 @@ button {
 button:hover {
   background-color: var(--primary-light);
 
-  border: 2px solid var(--primary);
+  /* border: 2px solid var(--primary); */
 }
 
 button:focus {

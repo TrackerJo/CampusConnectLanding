@@ -1,15 +1,17 @@
 import { DropdownProps } from "../constants";
 import "./dropdown.css";
 
-function Dropdown({title, links, onClick}: DropdownProps) {
+function Dropdown({ title, links, onClick }: DropdownProps) {
     return (
         <div className="dropdown">
-            <button className="dropbtn" onClick={() => {onClick()}}>{title}</button>
-            <div className="dropdown-content">
-              {links.map((link, index) => (
-                <a key={index} onClick={link.onClick}>{link.title}</a>
-                ))}
-            </div>
+            <button className="dropbtn" onClick={() => { onClick() }}>{title}</button>
+            {links.length > 0 && (
+                <div className="dropdown-content">
+                    {links.map((link, index) => (
+                        <a key={index} onClick={link.onClick}>{link.title}</a>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }

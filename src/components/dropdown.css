@@ -1,13 +1,18 @@
 .dropbtn {
-  background-color: var(--primary);
+  background-color: transparent;
   color: white;
-  padding: 10px 12px;
+  padding: 12px 16px;
   font-size: 16px;
-  font-weight: 800;
-  border: 2px solid var(--primary);
-  border-radius: 5px;
-  min-height: 44px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dropbtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -22,56 +27,71 @@
   display: none;
   position: absolute;
   background-color: white;
-  min-width: 180px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 5px;
-  margin-top: 5px;
+  min-width: 200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 12px;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  border: 1px solid #e8f5ea;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 14px 16px;
+  color: #333;
+  padding: 14px 20px;
   text-decoration: none;
   display: block;
-  min-height: 44px;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: var(--primary);
   color: white;
+  cursor: pointer;
+  transform: translateX(5px);
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  color: var(--primary);
-  background-color: white;
-  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-.dropbtn:focus {
-  outline: none;
-}
-
-/* Mobile improvements */
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .dropdown-content {
-    min-width: 200px;
-    right: 0;
+    min-width: 180px;
+    left: -50px;
   }
 
-  .dropdown-content a {
-    padding: 16px;
-    font-size: 16px;
+  .dropbtn {
+    padding: 10px 12px;
+    font-size: 14px;
   }
 }
