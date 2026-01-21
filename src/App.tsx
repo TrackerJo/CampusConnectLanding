@@ -27,7 +27,7 @@ function App() {
       <ActivitiesSection />
       <RidesharingSection />
       <OpportunitiesSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <PricingSection />
       <ContactSection />
     </>
